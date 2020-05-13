@@ -1,5 +1,7 @@
 
 syntax: glob
+bin/
+obj/
 
 syntax: regexp
 ^\.git/
