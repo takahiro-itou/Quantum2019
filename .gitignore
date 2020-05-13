@@ -3,4 +3,6 @@
 
 bin/
 obj/
+dump-*-initial.txt
+dump-*-result.txt
 

@@ -11,7 +11,8 @@ class  Driver
     static  void  Main(string[] args)
     {
         using (var qsim = new QuantumSimulator()) {
-            Test1.Run(qsim).Wait();
+            var result1 = Test1.Run(qsim).Result;
+            var result2 = Test2.Run(qsim).Result;
         }
     }
 }
