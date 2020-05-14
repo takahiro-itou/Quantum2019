@@ -7,7 +7,7 @@ open  Microsoft.Quantum.Canon;
 operation  Solve(x : Qubit[], y: Qubit) : Unit {
     body
     {
-        for ( i in 0..Length(qs)-1 ) {
+        for ( i in 0..Length(x)-1 ) {
             X(x[i]);
         }
         Controlled X(x, y);
