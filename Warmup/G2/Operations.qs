@@ -12,6 +12,9 @@ operation  Solve(x : Qubit[], y: Qubit) : Unit {
         }
         Controlled X(x, y);
         X(y);
+        for ( i in 0..Length(x)-1 ) {
+            X(x[i]);
+        }
     }
     adjoint auto;
 }
