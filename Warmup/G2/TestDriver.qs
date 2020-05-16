@@ -10,7 +10,12 @@ operation  Test1() : Unit {
         using (x = Qubit[1]) {
             using (register = Qubit[1]) {
                 let y = register[0];
-                H(x[0]);
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
                 DumpMachine("dump-1-initial.txt");
 
                 Solve(x, y);
@@ -28,8 +33,12 @@ operation  Test2() : Unit {
         using (x = Qubit[2]) {
             using (register = Qubit[1]) {
                 let y = register[0];
-                H(x[0]);
-                X(x[1]);
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
                 DumpMachine("dump-2-initial.txt");
 
                 Solve(x, y);
@@ -47,9 +56,12 @@ operation  Test3() : Unit {
         using (x = Qubit[3]) {
             using (register = Qubit[1]) {
                 let y = register[0];
-                H(x[0]);
-                X(x[1]);
-                H(x[2]);
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
                 DumpMachine("dump-3-initial.txt");
 
                 Solve(x, y);
@@ -67,10 +79,12 @@ operation  Test4() : Unit {
         using (x = Qubit[4]) {
             using (register = Qubit[1]) {
                 let y = register[0];
-                H(x[0]);
-                H(x[1]);
-                X(x[2]);
-                X(x[3]);
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
                 DumpMachine("dump-4-initial.txt");
 
                 Solve(x, y);
@@ -85,17 +99,84 @@ operation  Test4() : Unit {
 
 operation  Test5() : Unit {
     body {
+        using (x = Qubit[5]) {
+            using (register = Qubit[1]) {
+                let y = register[0];
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
+                DumpMachine("dump-5-initial.txt");
+
+                Solve(x, y);
+                DumpMachine("dump-5-result.txt");
+
+                Reset(y);
+            }
+            ResetAll(x);
+        }
+    }
+}
+
+operation  Test6() : Unit {
+    body {
+        using (x = Qubit[6]) {
+            using (register = Qubit[1]) {
+                let y = register[0];
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
+                DumpMachine("dump-6-initial.txt");
+
+                Solve(x, y);
+                DumpMachine("dump-6-result.txt");
+
+                Reset(y);
+            }
+            ResetAll(x);
+        }
+    }
+}
+
+operation  Test7() : Unit {
+    body {
+        using (x = Qubit[7]) {
+            using (register = Qubit[1]) {
+                let y = register[0];
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
+                DumpMachine("dump-7-initial.txt");
+
+                Solve(x, y);
+                DumpMachine("dump-7-result.txt");
+
+                Reset(y);
+            }
+            ResetAll(x);
+        }
+    }
+}
+
+operation  Test8() : Unit {
+    body {
         using (x = Qubit[8]) {
             using (register = Qubit[1]) {
                 let y = register[0];
-                H(x[0]);
-                H(x[1]);
-                X(x[2]);
-                H(x[3]);
-                H(x[4]);
-                X(x[5]);
-                H(x[6]);
-                H(x[7]);
+                for ( i in 0..Length(x) - 1 ) {
+                    H(x[i]);
+                }
+                X(y);
+                H(y);
+
                 DumpMachine("dump-8-initial.txt");
 
                 Solve(x, y);
