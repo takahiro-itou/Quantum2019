@@ -12,11 +12,13 @@ operation  Solve(x : Qubit[], y : Qubit) : Unit {
 
         for ( i in 0 .. (buff - 1) ) {
             CNOT(x[size - 1 - i], x[i]);
+            X(x[i]);
         }
 
         Controlled X(x[0 .. (buff - 1)], y);
 
         for ( i in 0 .. (buff - 1) ) {
+            X(x[i]);
             CNOT(x[size - 1 - i], x[i]);
         }
     }
