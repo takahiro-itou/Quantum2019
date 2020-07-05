@@ -11,7 +11,6 @@ operation  Solve(qs: Qubit[]) : Unit
     for ( i in 2 .. (N-1) ) {
         H(qs[i]);
     }
-    adjoint auto;
 }
 
 }
