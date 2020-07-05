@@ -2,35 +2,44 @@
 namespace  Solution  {
 
 open  Microsoft.Quantum.Canon;
+open  Microsoft.Quantum.Convert;
 open  Microsoft.Quantum.Diagnostics;
 open  Microsoft.Quantum.Intrinsic;
 
-operation  Test1() : () {
-    body {
-        using (register = Qubit[1]) {
-            let q = register[0];
-            DumpMachine("dump-1-initial.txt");
+operation  DumpUnitary(N : Int, unitary : (Qubit[] => Unit)) : Unit
+{
+    let size = 1 <<< N;
+    using (qs = Qubit[N]) {
+        for (i in 0 .. (size - 1)) {
+            let sourcePattern = IntAsBoolArray(i, N);
+            ApplyPauliFromBitString(PauliX, true, sourcePattern, qs);
 
-            Solve(q, 1);
-            DumpMachine("dump-1-result.txt");
+            unitary(qs);
 
-            Reset(q);
+            DumpMachine($"U_{N}_{i}.txt");
+            ResetAll(qs);
         }
     }
 }
 
-operation  Test2() : () {
-    body {
-        using (register = Qubit[1]) {
-            let q = register[0];
-            DumpMachine("dump-2-initial.txt");
+operation  Test1() : Unit
+{
+    DumpUnitary(2, Solve);
+}
 
-            Solve(q, -1);
-            DumpMachine("dump-2-result.txt");
+operation  Test2() : Unit
+{
+    DumpUnitary(3, Solve);
+}
 
-            Reset(q);
-        }
-    }
+operation  Test3() : Unit
+{
+    DumpUnitary(4, Solve);
+}
+
+operation  Test4() : Unit
+{
+    DumpUnitary(5, Solve);
 }
 
 }
