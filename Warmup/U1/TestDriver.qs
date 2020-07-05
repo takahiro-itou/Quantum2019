@@ -9,6 +9,7 @@ operation  Test1() : Unit {
     body {
         using (qs = Qubit[2]) {
             let N = Length(qs);
+            X(qs[N-1]);
             for ( i in 0 .. (N - 1) ) {
                 H(qs[i]);
             }
@@ -26,6 +27,7 @@ operation  Test2() : Unit {
     body {
         using (qs = Qubit[3]) {
             let N = Length(qs);
+            X(qs[N-1]);
             for ( i in 0 .. (N - 1) ) {
                 H(qs[i]);
             }
@@ -43,6 +45,7 @@ operation  Test3() : Unit {
     body {
         using (qs = Qubit[4]) {
             let N = Length(qs);
+            X(qs[N-1]);
             for ( i in 0 .. (N - 1) ) {
                 H(qs[i]);
             }
@@ -60,6 +63,7 @@ operation  Test4() : Unit {
     body {
         using (qs = Qubit[5]) {
             let N = Length(qs);
+            X(qs[N-1]);
             for ( i in 0 .. (N - 1) ) {
                 H(qs[i]);
             }
