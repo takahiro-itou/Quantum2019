@@ -4,14 +4,12 @@ namespace  Solution  {
 open  Microsoft.Quantum.Primitive;
 open  Microsoft.Quantum.Canon;
 
-operation  Solve(q: Qubit, sign: Int) : Unit {
-    body
-    {
-        //  your code here
-        if ( sign == -1 ) {
-            X(q);
-        }
-        H(q);
+operation  Solve(qs: Qubit[]) : Unit
+{
+    let N = Length(qs);
+    H(qs[0]);
+    for ( i in 2 .. (N-1) ) {
+        H(qs[i]);
     }
     adjoint auto;
 }
